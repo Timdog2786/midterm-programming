@@ -16,6 +16,24 @@ The file also contains a `flawed_benchmark()` function. The developer who wrote 
 
 *list your methodological errors and fixes here*
 
+- Problem: code uses time.time instead of time.pref_counter which is design for performance tests.
+    fix: changed time.time to time.pref_counter
+
+- problem: code uses 2 different data sets
+    fix: made both tests use the same data set
+
+- problem: code only tests 1, n input
+    fix: created a series of test of various n ranges of size n, as the functions are designed to check for 2 of the same value, so incresaing the range of values will result in better test cases.
+
+- problem: mimuium value of number inserted into data is determined by the size of n
+    fix: created a new min value to seperate it from the length of elements.
+
+- problem: each test only runs 1 time.
+    fix: run the same multiple times and take the average to esnure noise elmination
+
+- problem: if the array doesnt have a match, it will cause an outlier in the data as it checks every possible element.
+    fix: record that and graph it differently.
+
 2. Run the empirical comparion and plot the results using a plotting library of your choice (e.g., `matplotlib`, `seaborn`, etc.). Include the plot in your submission called `results.png`. Be sure to label your axes and include a legend.
 
 
